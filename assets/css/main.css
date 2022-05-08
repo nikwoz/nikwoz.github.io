@@ -3783,9 +3783,18 @@ input, select, textarea {
 			padding: 8rem 8rem 6rem 8rem ;
 		}
 
-			#main > .post header.major > .date {
-				margin-top: -2rem;
-			}
+		#code-box{
+			background-color: rgb(105,105,105);
+			color:  white;
+			font-family: "Lucida Console", "Courier New", monospace;
+			font-weight: normal;
+			border-radius: 5px;
+			padding: 25px;
+		}
+
+		#main > .post header.major > .date {
+			margin-top: -2rem;
+		}
 
 			#main > .post header.major > h1, #main > .post header.major h2 {
 				font-size: 4rem;
