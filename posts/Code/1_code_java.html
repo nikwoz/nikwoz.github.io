@@ -7,74 +7,77 @@
     <title>C0d3</title>
 </head>
 <body>
+<p>
+    The solution below contains two errors, on different lines of code. <br>
+    The first error prevents the algorithm from halting. <br>
+    The second error produces the wrong answer for some integer sequences.<br>
+    The errors in the solution are to be found and corrected. <br>
+    When correcting an error, only a portion of a single line of code is to be changed.<br>
+    <br>
+    <br>
+    Correct code: 
+    <br>
+    <br>
+</p>
+
+
     <code>
-        import java.util.LinkedList;
-
-    public class min {
-	public static void main(String[] args) {
-		int [] elementos = {3,11,4,12,7,13,8,14,9,15,17,16,2,10,1,19,18};
-		System.out.println(min(elementos));
-		System.out.println(minimum(elementos));
-		
+import java.util.LinkedList;
+<br>
+    public class min {<br>
+	public static void main(String[] args) {<br>
+		&nbsp;&nbsp;int [] elements = {3,11,4,12,7,13,8,14,9,15,17,16,2,10,1,19,18};<br>
+	    &nbsp;&nbsp;System.out.println(min(elements));<br>
+		&nbsp;&nbsp;System.out.println(minimum(elements));<br>
 	}
-    // The min method returns the least element in a sequential
-    // collection . If the collection is empty an
-    // IllegalArgumentException is thrown
-
-	public static int min (int [] elements) {
-		int minimum = elements [0];
-		for  (int i = 0; i &lt; elements.length; i++) {
-			if (elements[i] &lt; minimum) {
-				minimum = elements[i];
-			}
-		}
-		return minimum;
+    <br>
+    <br>
+    // The min method returns the least element in a sequential collection. If the collection is empty an IllegalArgumentException is thrown.
+    <br>
+    <br>
+	public static int min (int [] elements) { <br>
+		&nbsp;&nbsp;int minimum = elements [0];<br>
+		&nbsp;&nbsp;for  (int i = 0; i &lt; elements.length; i++) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;if (elements[i] &lt; minimum) {<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum = elements[i];<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br>
+		&nbsp;&nbsp;return minimum;<br>
 	}
-
-    // The min method returns the least element in a sequential
-    // collection. If the collection is empty an
-    // IllegalArgumentException is thrown
-
-	public static int minimum (int[] elements)
-			throws IllegalArgumentException {
-		if (elements.length == 0)
-			throw new IllegalArgumentException (" empty collection ");
-	        // Is used in trace printing 2:
-            int nofIters = 1;
-	int [] sequence = elements ;
-	int nofPairs = sequence.length / 2;
-	int nofUnpairedElements = sequence.length % 2;
-	int nofPossibleElements = nofPairs + nofUnpairedElements;
-	int [] partialSeq = new int [nofPossibleElements];
-	int i = 0;
-	int j = 0;
-	while (sequence.length > 1) {
-		// extract a partial sequence of possible elements
-		i = 0;
-		j = 0;
-			while (j &lt; nofPairs) {
-				partialSeq [j++] = (sequence [i] &lt; sequence [i + 1]) ? sequence [i] : sequence [i + 1];
-				i += 2;
-			}
-		if (nofUnpairedElements == 1)
-			partialSeq [j] = sequence [ sequence . length - 1];
-				//Now turn to the partial sequence
-		sequence = partialSeq;
-		nofPairs = sequence.length / 2; 
-		nofUnpairedElements = nofPossibleElements % 2;
-		nofPossibleElements = nofPairs + nofUnpairedElements;
-				//Trace printing 1 - to follow the sequence
-		System.out.println ( java . util . Arrays . toString ( sequence ));
-				//Trace printing 2 - to terminate the loop preemptively
-				// (to be able to see what happens initially )
-		if (nofIters ++ == 10)
-				//System . exit (0);
-			break;
-	}
-	// sequence [0] is the only remaining possible element
-	// - it is the least element
-	    return sequence [0];
-	    }
+    <br>
+    <br>
+    //The minimum method returns the least element in a sequential collection. If the collection is empty an IllegalArgumentException is thrown
+    <br>
+    <br>
+	public static int minimum (int[] elements){<br>
+    &nbsp;&nbsp;throws IllegalArgumentException {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (elements.length == 0)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new IllegalArgumentException (" empty collection ");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;int nofIters = 1;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int nofPairs = elements.length / 2;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int nofUnpairedElements = elements.length % 2;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int nofPossibleElements = nofPairs + nofUnpairedElements;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int[] partialSeq = new int[nofPossibleElements];<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int i = 0;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;int j = 0;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;while (elements.length > 1) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = 0;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = 0;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (j &lt; nofPairs) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;partialSeq[j++] = (elements[i] &lt; elements[i + 1]) ? elements[i] : elements[i + 1];<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 2;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;if (nofUnpairedElements == 1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;partialSeq [j] = elements[elements.length -1];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;elements = partialSeq;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;nofPairs = elements.length / 2; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;nofUnpairedElements = nofPossibleElements % 2;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;nofPossibleElements = nofPairs + nofUnpairedElements;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;System.out.println (java.util.Arrays.toString(elements));<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;if (nofIters ++ == 10)<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+	    &nbsp;&nbsp;&nbsp;&nbsp;return elements[0];<br>
+    &nbsp;&nbsp;}<br>
     }
     </code>
 
