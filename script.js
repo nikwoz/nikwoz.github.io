@@ -20,8 +20,6 @@ function ShowMe()
     alert("Please fill in the missing fields");
   } else {
     if (ValidateMail(email) == true)  {
-      //send to firebase
-      const app = initializeApp(firebaseConfig);
       //resetting the form
       name.value = "";
       email.value = "";
